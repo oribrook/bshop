@@ -367,3 +367,61 @@ body {
         display: flex;
     }
 }
+
+ /* Add styles for refresh button */
+ .refresh-button {
+    background-color: #f0f0f0;
+    border: none;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+    transition: transform 0.3s ease;
+  }
+
+  .refresh-button:hover {
+    background-color: #e0e0e0;
+  }
+
+  .refresh-button.spinning {
+    animation: spin 1s linear infinite;
+  }
+
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  .button-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+
+  /* Update conversation header to include refresh button */
+  .conversation-header {
+    display: flex;
+    align-items: center;
+    padding: 16px;
+    border-bottom: 1px solid #e0e0e0;
+    background-color: #f8f8f8;
+    justify-content: space-between;
+  }
+
+  .header-left {
+    display: flex;
+    align-items: center;
+  }
+
+  .header-right {
+    display: flex;
+    align-items: center;
+  }
