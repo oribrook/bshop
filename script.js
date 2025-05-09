@@ -168,7 +168,7 @@ async function fetchData(showLoadingIndicator = true) {
         updatedSelectedUser &&
         currentSelectedUser &&
         updatedSelectedUser.messages.length !==
-          currentSelectedUser.messages.length
+        currentSelectedUser.messages.length
       ) {
         renderConversation(updatedSelectedUser);
       }
@@ -244,9 +244,8 @@ function renderUsersList() {
 
   users.forEach((user) => {
     const userItem = document.createElement("div");
-    userItem.className = `user-item ${
-      user.id === selectedUserId ? "active" : ""
-    }`;
+    userItem.className = `user-item ${user.id === selectedUserId ? "active" : ""
+      }`;
     userItem.dataset.id = user.id;
 
     const lastMessagePreview = getLastMessagePreview(user.messages);
@@ -382,7 +381,6 @@ function renderConversation(user) {
 function handleRefreshClick() {
   fetchData(false); // false means don't show the main loading indicator
 }
-
 // Format messages for display
 function formatMessages(messages) {
   if (!messages || messages.length === 0) {
@@ -403,6 +401,9 @@ function formatMessages(messages) {
     const isClient = message.sent_by === "client";
     const messageClass = isClient ? "message-client" : "message-business";
 
+    // Replace newline characters with <br> tags for proper line breaks
+    const formattedContent = message.content.replace(/\n/g, '<br>');
+
     // If sender changed or this is the first message, start a new group
     if (message.sent_by !== currentSender || index === 0) {
       // Add previous message group to HTML if it exists
@@ -416,7 +417,7 @@ function formatMessages(messages) {
     // Add message to current group
     messageGroup += `
       <div class="message ${messageClass}">
-          <div class="message-content">${message.content}</div>
+          <div class="message-content">${formattedContent}</div>
           <div class="message-time">${formattedTime}</div>
       </div>
     `;
@@ -429,7 +430,6 @@ function formatMessages(messages) {
 
   return html;
 }
-
 // Check if device is mobile
 function checkIfMobile() {
   isMobile = window.innerWidth <= 768;
