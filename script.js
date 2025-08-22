@@ -14,7 +14,7 @@ let users = [];
 let selectedUserId = null;
 let isMobile = window.innerWidth <= 768;
 let token = null;
-const STORE_ID = 1;
+const STORE_ID = 9;
 const TOKEN_STORAGE_KEY = "chat_board_token";
 
 // Format date to local time
